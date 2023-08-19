@@ -1,0 +1,16 @@
+@font-face {
+  font-family: Elementa;
+  src: url("/src/assets/ElementaRegular.otf");
+}
+
+@font-face {
+  font-family: Veneer;
+  src: url("/src/assets/Veneer.ttf");
+}
+
+$font-heading: Veneer;
+$font-body: Elementa;
+
+// Colours:
+
+$brewdogBlue: #00bbef

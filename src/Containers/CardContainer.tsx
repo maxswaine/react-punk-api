@@ -1,14 +1,17 @@
 import "./CardContainer.scss";
+import BeerCard from "../Components/BeerCard/BeerCard";
+import { Beer } from "../Data/Types";
 
-const CardContainer = () => {
+type CardContainerProps = {
+  beers: Beer[];
+};
+
+const CardContainer = ({ beers }: CardContainerProps) => {
   return (
     <div className="card-container">
-      <div className="card-container__beer"></div>
-      <div className="card-container__beer"></div>
-      <div className="card-container__beer"></div>
-      <div className="card-container__beer"></div>
-      <div className="card-container__beer"></div>
-      <div className="card-container__beer"></div>
+      {beers.map((beer, index) => (
+        <BeerCard beer={beer} key={index} />
+      ))}
     </div>
   );
 };
