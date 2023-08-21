@@ -114,7 +114,7 @@ const beers: Beer[] = [
           attribute: "flavour",
         },
       ],
-      yeast: "Wyeast 1056 - American Ale™",
+      yeast: "Yeast 1056 - American Ale™",
     },
     food_pairing: [
       "Spicy chicken tikka masala",

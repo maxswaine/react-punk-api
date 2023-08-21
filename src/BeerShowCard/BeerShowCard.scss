@@ -3,7 +3,8 @@
 .card {
   overflow: visible;
   width: 19em;
-  height: 25.4em;
+  height: 23em;
+  margin: 0 20px 20px 20px;
 }
 
 .content {
@@ -34,6 +35,28 @@
   display: flex;
   align-items: center;
   overflow: hidden;
+  &__content {
+    position: absolute;
+    width: 99%;
+    height: 99%;
+    background-color: $brewdogBlue;
+    border-radius: 0.5em;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 3em;
+  }
+  &__image {
+    width: 7em;
+    height: 15em;
+  }
+  &__header {
+    font-family: $font-heading, Arial, Helvetica, sans-serif;
+    font-size: 2em;
+  }
 }
 
 .back::before {
@@ -52,20 +75,6 @@
     transparent
   );
   animation: rotation_481 8000ms infinite linear;
-}
-
-.back-content {
-  position: absolute;
-  width: 99%;
-  height: 99%;
-  background-color: $brewdogBlue;
-  border-radius: 0.5em;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 3em;
 }
 
 .card:hover .content {
@@ -120,6 +129,7 @@
   max-width: 100%;
   display: flex;
   justify-content: space-between;
+  font-family: $font-heading, Arial, Helvetica, sans-serif;
 }
 
 .title p {
@@ -130,6 +140,7 @@
   color: #ffffff88;
   margin-top: 0.5em;
   font-size: 0.8em;
+  font-family: $font-body, ar;
 }
 
 .front .img {
@@ -166,15 +177,6 @@
   width: 3em;
   height: 3em;
   animation-delay: -1.8s;
-}
-
-.back__image {
-  width: 10em;
-  height: 15em;
-}
-.back__header {
-  font-family: $font-heading, Arial, Helvetica, sans-serif;
-  font-size: 2em;
 }
 
 @keyframes floating {

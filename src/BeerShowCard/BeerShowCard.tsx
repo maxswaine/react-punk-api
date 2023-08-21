@@ -10,7 +10,7 @@ const BeerShowCard = ({ beer }: BeerShowCardProps) => {
     <div className="card">
       <div className="content">
         <div className="back">
-          <div className="back-content">
+          <div className="back__content">
             <img className="back__image" src={beer.image_url} alt="Beer" />
             <strong className="back__header">{beer.name}</strong>
           </div>
@@ -23,7 +23,7 @@ const BeerShowCard = ({ beer }: BeerShowCardProps) => {
           </div>
 
           <div className="front-content">
-            <small className="badge">{beer.abv}</small>
+            <small className="badge">{`${beer.abv}%  ABV`}</small>
             <div className="description">
               <div className="title">
                 <p className="title">
