@@ -1,15 +1,18 @@
-import "./PageNumberSelector.scss"
+import "./PageNumberSelector.scss";
 
 type PageNumberSelectorProps = {
-  handlePageNumberStart: () => void;
-    handlePageNumberIncrease: () => void;
-    handlePageNumberDecrease: () => void;
-    pageNumber: number;
-  };
+  handlePageNumberIncrease: () => void;
+  handlePageNumberDecrease: () => void;
+  pageNumber: number;
+};
 
-const PageNumberSelector = ({handlePageNumberStart, handlePageNumberIncrease, handlePageNumberDecrease, pageNumber}: PageNumberSelectorProps) => {
+const PageNumberSelector = ({
+  handlePageNumberIncrease,
+  handlePageNumberDecrease,
+  pageNumber,
+}: PageNumberSelectorProps) => {
   return (
-    <div className="pageNumberContainer" onLoad={handlePageNumberStart}>
+    <div className="pageNumberContainer">
       <div
         className="arrow arrow--left"
         onClick={handlePageNumberDecrease}

@@ -1,11 +1,29 @@
+import { FormEvent } from "react";
+import SearchBar from "../SearchBar/SearchBar";
 import "./Sidebar.scss";
+import FilterButton from "../FilterButton/FilterButton";
 
-const Sidebar = () => {
+type SidebarProps = {
+  handleSearch: (searchTerm: string) => void;
+  searchTerm: string;
+};
+
+const Sidebar = ({ handleSearch, searchTerm }: SidebarProps) => {
+  const handleInput = (event: FormEvent<HTMLInputElement>) => {
+    const inputToLower = event.currentTarget.value.toLowerCase();
+    handleSearch(inputToLower);
+  };
+
   return (
     <div className="sidebar">
-      <div className="sidebar__checkbox"></div>
-      <div className="sidebar__checkbox"></div>
-      <div className="sidebar__checkbox"></div>
+      <SearchBar
+        label="Search"
+        searchTerm={searchTerm}
+        handleInput={handleInput}
+      />
+      <FilterButton label="ABV" />
+      <FilterButton label="Classic Range" />
+      <FilterButton label="High Acidity" />
     </div>
   );
 };
