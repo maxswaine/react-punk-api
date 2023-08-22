@@ -11,11 +11,18 @@ function App() {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   const getBeers = async () => {
-    const res = await fetch(
-      `https://api.punkapi.com/v2/beers?page=${pageNumber}&per_page=25`
-    );
-    const data = await res.json();
-    setBeerDisplay(data);
+    let url = `https://api.punkapi.com/v2/beers?page=${pageNumber}&per_page=25`;
+    const res = await fetch(url);
+    const data: Beer[] = await res.json();
+
+    if (searchTerm) {
+      const filteredData = data.filter((beer: Beer) => {
+        return beer.name.toLowerCase().includes(searchTerm);
+      });
+      setBeerDisplay(filteredData);
+    } else {
+      setBeerDisplay(data);
+    }
   };
 
   const handlePageNumberIncrease = () => {
@@ -32,17 +39,17 @@ function App() {
     }
   };
 
+  const handleSearchTerm = (term: string) => {
+    setSearchTerm(term);
+  };
+
   useEffect(() => {
     getBeers();
-  }, [pageNumber, beerDisplay]);
+  }, [pageNumber, searchTerm]);
 
   return (
     <div className="App">
-      <Sidebar
-        handleSearch={function (searchTerm: string): void {
-          throw new Error("Function not implemented.");
-        }}
-      />
+      <Sidebar handleSearch={handleSearchTerm} searchTerm={searchTerm} />
       <CardContainer beers={beerDisplay} />
       <PageNumberSelector
         handlePageNumberDecrease={handlePageNumberDecrease}

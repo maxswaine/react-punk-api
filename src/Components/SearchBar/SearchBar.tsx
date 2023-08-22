@@ -1,13 +1,14 @@
-
+import { FormEvent } from "react";
 
 type SearchBarProps = {
   label: string;
   searchTerm: string;
-  handleInput: () => void;
+  handleInput: (event: FormEvent<HTMLInputElement>) => void;
 };
 
 const SearchBar = ({ label, searchTerm, handleInput }: SearchBarProps) => {
   const capitalizedLabel = label[0].toUpperCase() + label.slice(1);
+
   return (
     <div className="search-bar">
       <label htmlFor={label} className="search-bar__label">
@@ -24,5 +25,4 @@ const SearchBar = ({ label, searchTerm, handleInput }: SearchBarProps) => {
     </div>
   );
 };
-
 export default SearchBar;
