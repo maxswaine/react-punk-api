@@ -1,4 +1,4 @@
-@use "../assets/variables.scss" as *;
+@use "../../assets/variables.scss" as *;
 
 .card {
   overflow: visible;
@@ -56,6 +56,9 @@
   &__header {
     font-family: $font-heading, Arial, Helvetica, sans-serif;
     font-size: 2em;
+    -webkit-text-stroke: 1px black; /* Outline color and width */
+    -webkit-text-fill-color: transparent; /* Make the text transparent so that the outline is visible */
+    fill: transparent;
   }
 }
 
@@ -177,6 +180,10 @@
   width: 3em;
   height: 3em;
   animation-delay: -1.8s;
+}
+
+.card__description {
+  font-family: $font-body;
 }
 
 @keyframes floating {

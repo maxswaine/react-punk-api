@@ -1,4 +1,4 @@
-import { Beer } from "../Data/Types";
+import { Beer } from "../../Data/Types";
 import "./BeerShowCard.scss";
 
 type BeerShowCardProps = {
@@ -31,6 +31,7 @@ const BeerShowCard = ({ beer }: BeerShowCardProps) => {
                 </p>
               </div>
               <p className="card-footer">{beer.tagline}</p>
+              <p className="card__description">{beer.description}</p>
             </div>
           </div>
         </div>

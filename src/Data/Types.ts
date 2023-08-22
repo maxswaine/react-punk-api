@@ -21,33 +21,40 @@ export type Beer = {
   brewers_tips: string;
   contributed_by: string;
 };
+
 type Ingredients = {
   malt: Malt[];
   hops: Hop[];
   yeast: string;
 };
+
 type Hop = {
   name: string;
   amount: Volume;
   add: string;
   attribute: string;
 };
+
 type Malt = {
   name: string;
   amount: Volume;
 };
+
 type Method = {
   mash_temp: MashTemp[];
   fermentation: Fermentation;
   twist?: any;
 };
+
 type Fermentation = {
   temp: Volume;
 };
+
 type MashTemp = {
   temp: Volume;
   duration: number | null;
 };
+
 type Volume = {
   value: number;
   unit: string;
