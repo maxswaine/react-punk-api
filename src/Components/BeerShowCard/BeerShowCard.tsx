@@ -6,6 +6,10 @@ type BeerShowCardProps = {
 };
 
 const BeerShowCard = ({ beer }: BeerShowCardProps) => {
+  const lastSentenceIndex = beer.description.indexOf(".", 100);
+  const shortenedText =
+    beer.description.substring(0, lastSentenceIndex) ?? "No description given";
+
   return (
     <div className="card">
       <div className="content">
@@ -27,11 +31,11 @@ const BeerShowCard = ({ beer }: BeerShowCardProps) => {
             <div className="description">
               <div className="title">
                 <p className="title">
-                  <strong>Name of the thing</strong>
+                  <strong>beer.name</strong>
                 </p>
               </div>
               <p className="card-footer">{beer.tagline}</p>
-              <p className="card__description">{beer.description}</p>
+              <p className="card__description">{beer.tagline}</p>
             </div>
           </div>
         </div>

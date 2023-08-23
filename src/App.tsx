@@ -9,20 +9,42 @@ function App() {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [beerDisplay, setBeerDisplay] = useState<Beer[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [urlFilters, setUrlFilters] = useState<Record<string, boolean>>({
+    ABV: false,
+    classic: false,
+    acid: false,
+  });
+
+  const highAcidityCondition = 4;
 
   const getBeers = async () => {
     let url = `https://api.punkapi.com/v2/beers?page=${pageNumber}&per_page=25`;
+
+    urlFilters.ABV
+      ? (url += "&abv_gt=6")
+      : (url = url.replace("&abv_gt=6", ""));
+    urlFilters.classic
+      ? (url += "&brewed_before=01-2010")
+      : (url = url.replace("&brewed_before=01-2010", ""));
+
     const res = await fetch(url);
     const data: Beer[] = await res.json();
 
-    if (searchTerm) {
-      const filteredData = data.filter((beer: Beer) => {
-        return beer.name.toLowerCase().includes(searchTerm);
-      });
-      setBeerDisplay(filteredData);
-    } else {
-      setBeerDisplay(data);
+    let filteredData = data;
+
+    if (urlFilters.acid) {
+      filteredData = filteredData.filter(
+        (beer: Beer) => beer.ph <= highAcidityCondition
+      );
     }
+
+    if (searchTerm) {
+      filteredData = filteredData.filter((beer: Beer) =>
+        beer.name.toLowerCase().includes(searchTerm)
+      );
+    }
+
+    setBeerDisplay(filteredData);
   };
 
   const handlePageNumberIncrease = () => {
@@ -43,13 +65,25 @@ function App() {
     setSearchTerm(term);
   };
 
+  const handleFilterChange = (filterLabel: string) => {
+    setUrlFilters((prevUrlFilters) => ({
+      ...prevUrlFilters,
+      [filterLabel]: !prevUrlFilters[filterLabel],
+    }));
+  };
+
   useEffect(() => {
     getBeers();
-  }, [pageNumber, searchTerm]);
+  }, [pageNumber, searchTerm, urlFilters]);
 
   return (
     <div className="App">
-      <Sidebar handleSearch={handleSearchTerm} searchTerm={searchTerm} />
+      <Sidebar
+        handleSearch={handleSearchTerm}
+        searchTerm={searchTerm}
+        handleFilterChange={handleFilterChange}
+        filterStates={urlFilters}
+      />
       <CardContainer beers={beerDisplay} />
       <PageNumberSelector
         handlePageNumberDecrease={handlePageNumberDecrease}
