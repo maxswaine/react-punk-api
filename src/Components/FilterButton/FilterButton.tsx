@@ -4,9 +4,10 @@ import "./FilterButton.scss";
 type FilterButtonProps = {
   label: string;
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  checked: boolean;
 };
 
-const FilterButton = ({ label, handleChange }: FilterButtonProps) => {
+const FilterButton = ({ label, handleChange, checked }: FilterButtonProps) => {
   return (
     <div className="checkbox-wrapper">
       <input
@@ -14,6 +15,7 @@ const FilterButton = ({ label, handleChange }: FilterButtonProps) => {
         name="checkbox"
         type="checkbox"
         onChange={handleChange}
+        checked={checked}
       />
       <label className="terms-label" htmlFor={label}>
         <svg
