@@ -7,7 +7,7 @@ export type Beer = {
   image_url: string;
   abv: number;
   ibu: number;
-  target_fg: number;
+  target_fg: number; 
   target_og: number;
   ebc: number;
   srm: number;

@@ -1,7 +1,7 @@
 import { FormEvent } from "react";
 import SearchBar from "../SearchBar/SearchBar";
-import "./Sidebar.scss";
 import FilterButton from "../FilterButton/FilterButton";
+import "./Sidebar.scss";
 
 type SidebarProps = {
   handleSearch: (searchTerm: string) => void;
@@ -22,7 +22,7 @@ const Sidebar = ({
   };
 
   return (
-    <div className="sidebar">
+    <div className="sidebar__element">
       <SearchBar
         label="Search"
         searchTerm={searchTerm}

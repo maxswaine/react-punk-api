@@ -1,0 +1,46 @@
+@use "../../assets/variables.scss" as *;
+
+.presentation-card {
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: 60vw;
+    margin: auto;
+    margin-top: 15vh;
+    border: rgb(71, 187, 239) solid 2px;
+    box-shadow: rgba(71, 187, 239, 0.8) 5px 5px,
+      rgba(71, 187, 239, 0.7) 10px 10px, rgba(71, 187, 239, 0.6) 15px 15px,
+      rgba(71, 187, 239, 0.1) 20px 20px, rgba(71, 187, 239, 0.05) 25px 25px;
+  }
+  &__display {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+  &__header {
+    font-family: $font-heading, Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  &--side {
+    height: 20vh;
+  }
+  &__image--side {
+    height: 20vh;
+    width: auto;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-family: $font-body;
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}

@@ -1,7 +1,9 @@
-.sidebar {
+@use "../../assets/variables.scss" as *;
+
+.sidebar__element {
   position: sticky;
   top: 0;
-  width: 15%;
+  width: 100%;
   height: 100vh;
   border: black solid 2px;
   display: flex;
