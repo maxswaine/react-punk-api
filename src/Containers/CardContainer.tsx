@@ -1,7 +1,6 @@
 import "./CardContainer.scss";
 import { Beer } from "../Data/Types";
 import BeerShowCard from "../Components/BeerShowCard/BeerShowCard";
-import PageNumberSelector from "../Components/PageNumberSelector/PageNumberSelector";
 
 type CardContainerProps = {
   beers: Beer[];

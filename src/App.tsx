@@ -27,6 +27,10 @@ function App() {
       ? (url += "&brewed_before=01-2010")
       : (url = url.replace("&brewed_before=01-2010", ""));
 
+    if (searchTerm) {
+      url += `&beer_name=${searchTerm}`;
+    }
+
     const res = await fetch(url);
     const data: Beer[] = await res.json();
 
@@ -35,12 +39,6 @@ function App() {
     if (urlFilters.acid) {
       filteredData = filteredData.filter(
         (beer: Beer) => beer.ph <= highAcidityCondition
-      );
-    }
-
-    if (searchTerm) {
-      filteredData = filteredData.filter((beer: Beer) =>
-        beer.name.toLowerCase().includes(searchTerm)
       );
     }
 

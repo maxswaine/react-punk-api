@@ -31,7 +31,7 @@ const BeerShowCard = ({ beer }: BeerShowCardProps) => {
             <div className="description">
               <div className="title">
                 <p className="title">
-                  <strong>beer.name</strong>
+                  <strong>{beer.name}</strong>
                 </p>
               </div>
               <p className="card-footer">{beer.tagline}</p>
