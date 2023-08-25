@@ -4,8 +4,9 @@
   &__container {
     position: fixed;
     bottom: 0;
-    left: 13%;
+    left: 13.25%;
     right: 0;
+    border-radius: 20px;
     background-color: #19233e;
     color: white;
     display: flex;
@@ -21,7 +22,7 @@
     }
     &--display {
       text-align: center;
-      font-size: 50px;
+      font-size: 30px;
       font-family: $font-heading;
     }
   }

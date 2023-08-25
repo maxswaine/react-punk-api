@@ -16,6 +16,18 @@ const BeerShowCard = ({ beer }: BeerShowCardProps) => {
   const handleClick = () => {
     navigate(`/beers/${beer.id}`);
   };
+
+  const firstLetterToLower = (description: string): string => {
+    if (description.length === 0) {
+      return description;
+    }
+
+    const firstLetter = description[0];
+    const restOfString = description.slice(1);
+    const modifiedString = firstLetter.toLowerCase() + restOfString;
+
+    return modifiedString;
+  };
   return (
     <Link to={`/beers/${beer.id}`} onClick={handleClick}>
       <div className="card">
@@ -42,7 +54,9 @@ const BeerShowCard = ({ beer }: BeerShowCardProps) => {
                   </p>
                 </div>
                 <p className="card-footer">{beer.tagline}</p>
-                <p className="card__description">{beer.tagline}</p>
+                <p className="card__description">
+                  The Brewer advises {firstLetterToLower(beer.brewers_tips)}
+                </p>
               </div>
             </div>
           </div>

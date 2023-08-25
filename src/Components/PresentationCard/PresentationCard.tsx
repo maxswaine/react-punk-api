@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Beer } from "../../Data/Types";
 import "./PresentationCard.scss";
 import beerGIF from "../../assets/images/defgbz7-95af22ce-11e0-4ef6-9a76-4f2041f80d90.gif";
+import exitButton from "../../assets/images/close-square-svgrepo-com.svg";
 
 type PresentationCardProps = {
   getSingleBeer: (id: number) => Promise<Beer>;
@@ -39,11 +40,23 @@ const PresentationCard = ({ getSingleBeer }: PresentationCardProps) => {
   return (
     <div className="presentation-card__container">
       <div className="presentation-card__display">
-        <img
-          src={beerGIF}
-          alt="beer gif"
-          className="presentation-card__image--side"
-        />
+        <div className="presentation-card__side">
+          <img
+            src={beerGIF}
+            alt="beer gif"
+            className="presentation-card__image--side"
+          />
+          <img
+            src={beerGIF}
+            alt="beer gif"
+            className="presentation-card__image--side"
+          />
+          <img
+            src={beerGIF}
+            alt="beer gif"
+            className="presentation-card__image--side"
+          />
+        </div>
         <div className="presentation-card__info">
           <div className="presentation-card__header">
             <h2>{beer.name}</h2>
@@ -56,6 +69,9 @@ const PresentationCard = ({ getSingleBeer }: PresentationCardProps) => {
               <br />
               <p>Description: {shortenedText}</p>
               <br />
+              <p>pH: {beer.ph}</p> <br></br>
+              <p>{`IBU (International Bitterness Units): ${beer.ibu}`}</p>
+              <br></br>
               <p>Food Pairings:</p>
               <ul>
                 {beer.food_pairing.map((food) => {
@@ -65,11 +81,32 @@ const PresentationCard = ({ getSingleBeer }: PresentationCardProps) => {
             </div>
           </div>
         </div>
-        <img
-          className="presentation-card__image--side"
-          src={beerGIF}
-          alt="beer gif"
-        />
+        <div className="presentation-card__side">
+          <img
+            src={beerGIF}
+            alt="beer gif"
+            className="presentation-card__image--side"
+          />
+          <img
+            src={beerGIF}
+            alt="beer gif"
+            className="presentation-card__image--side"
+          />
+          <img
+            src={beerGIF}
+            alt="beer gif"
+            className="presentation-card__image--side"
+          />
+        </div>
+        <div className="exit-button">
+          <Link to="/">
+            <img
+              src={exitButton}
+              alt="exit button"
+              className="exit-button__image"
+            />
+          </Link>
+        </div>
       </div>
     </div>
   );

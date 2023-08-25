@@ -4,8 +4,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   &__label {
     text-align: center;
+    font-family: $font-body;
   }
   &__input:focus {
     border-color: $brewdogBlue;

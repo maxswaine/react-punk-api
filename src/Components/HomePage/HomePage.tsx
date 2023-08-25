@@ -3,7 +3,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import CardContainer from "../../Containers/CardContainer";
 import PageNumberSelector from "../PageNumberSelector/PageNumberSelector";
 import { Beer } from "../../Data/Types";
-import "./HomePage.scss"
+import "./HomePage.scss";
 
 const HomePage = () => {
   const [pageNumber, setPageNumber] = useState<number>(1);
@@ -75,6 +75,7 @@ const HomePage = () => {
       ...prevUrlFilters,
       [filterLabel]: !prevUrlFilters[filterLabel],
     }));
+    setPageNumber(1);
   };
 
   useEffect(() => {
